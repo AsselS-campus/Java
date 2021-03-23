@@ -22,7 +22,7 @@ public class Main {
             /*Le code est exécuté tant que le booléen est vrai*/
             menu.afficher();
             int type_menu = scanner.nextInt();
-
+            /*nextInt()-Récupère l'entrée en tant que int*/
             if (type_menu == 1) {
                 personnage = menu.nouveau_personnage();
             } else if (type_menu == 2) {
@@ -34,7 +34,7 @@ public class Main {
                 } else System.err.println("Pas de personnage créé...");
             } else if (type_menu == 4) {
                 if (personnage != null) {
-                    menu.démarrer_partie(personnage);
+                    menu.demarrer_partie(personnage);
                 } else System.err.println("Pas de personnage créé...");
             } else if (type_menu == 5) System.exit(0);
         }

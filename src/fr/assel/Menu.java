@@ -12,8 +12,9 @@ public class Menu {
         System.out.println("4. Démarrer la partie");
         System.out.println("5. Quitter jeu");
     }
-    /*Plateau de Jeu et déplacement du joueur*/
-    public void démarrer_partie(Personnage personnage) {
+    /*3-Plateau de Jeu et déplacement du joueur*/
+    /*public car appelée par une classe tiers(Main) et ça ne renvoie rien, donc void*/
+    public void demarrer_partie(Personnage personnage) {
         int[] plateau = new int[64];
         int position_personnage = 0;
 
@@ -29,14 +30,13 @@ public class Menu {
         System.out.println("Personnage au bout du plateau en position " + position_personnage);
     }
     /*méthode*/
+    /*renvoie une instance de Personnage modifiée, donc on met personnage en type de retour*/
     public Personnage modifier_personnage(Personnage personnage) {
         Scanner scanner = new Scanner(System.in);
 
         System.out.println("Quel est le nom de votre personnage?");
         String name = scanner.next();
         personnage.set_name(name);
-
-        // TODO doit on demander hp et attack ? (pour le moment en dur ds les classes)
 
         return personnage;
     }
