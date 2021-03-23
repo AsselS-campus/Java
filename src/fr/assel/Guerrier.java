@@ -8,6 +8,7 @@ public class Guerrier extends Personnage {
     public Guerrier(){
         this.hp = 5;
         this.attack = 10;
+
     }
     public Guerrier(String name) {
         this.hp = 5;

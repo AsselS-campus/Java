@@ -8,24 +8,26 @@ public class Personnage {
     protected int hp ;
     protected int attack;
 
-    public  void set_name(String name) {
+
+
+    public  void setName(String name) {
         this.name = name;
     }
-    public  String get_name() {
+    public  String getName() {
         return this.name;
     }
 
-    public  void set_hp(int hp) {
+    public  void setHp(int hp) {
         this.hp = hp;
     }
-    public  int get_hp() {
+    public  int getHp() {
         return this.hp;
     }
 
-    public  void set_attack(int attack) {
+    public  void setAttack(int attack) {
         this.attack = attack;
     }
-    public  int get_attack() {
+    public  int getAttack() {
         return this.attack;
     }
 }
