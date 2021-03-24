@@ -4,10 +4,15 @@ public class Personnage {
     /*accès protégé. La variable n'est disponible qu'à l'intérieur d'une classe. Elle peut être donc visible pour les classes
      héritantes. Elle est aussi visible pour des classes non héritantes mais étant du même package.*/
     /*las variables protected sont utilisées ds la classe et ds la mère*/
-    protected String name;
-    protected int hp ;
-    protected int attack;
+    private String name;
+    private int hp ;
+    private int attack;
 
+public Personnage(String name, int hp, int attack ){
+    this.hp = hp;
+    this.attack = attack;
+    this.name = name;
+}
 public Personnage(){
 
 }

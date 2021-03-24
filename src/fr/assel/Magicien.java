@@ -5,19 +5,14 @@ public class Magicien extends Personnage {
     private Philtre philtre;
 
     public Magicien() {
-        this.hp = 2;
-        this.attack = 5;
+        this("Magicien");
+
     }
     public Magicien(String name){
-        this.hp = 2;
-        this.attack = 5;
-
-        this.name=name;
+        this(name,2,5, new Sort(), new Philtre());
     }
     public Magicien(String name, int hp, int attack, Sort sort, Philtre philtre){
-        this.name=name;
-        this.hp=hp;
-        this.attack=attack;
+        super(name,hp,attack);
         this.sort=sort;
         this.philtre=philtre;
     }
@@ -25,9 +20,9 @@ public class Magicien extends Personnage {
     @Override
     public String toString() {
         return "Mage{" +
-                "name='" + this.name + '\'' +
-                ", hp=" + this.hp +
-                ", attack=" + this.attack +
+                "name='" + this.getName() + '\'' +
+                ", hp=" + this.getHp() +
+                ", attack=" + this.getAttack() +
                 ", sort=" + this.sort +
                 ", philtre=" + this.philtre +
                 '}';
