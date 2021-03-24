@@ -41,6 +41,10 @@ public class Menu {
             }
         }
     }
+
+public class PersonnageHorsPlateauException extends Exception{
+
+}
     /*Plateau de Jeu et déplacement du joueur*/
     public void demarrerPartie(Personnage personnage) {
         /*demarrerPartie c'est public car appelée par une classe tiers (main) et ça ne renvoit rien,donc VOID*/
@@ -80,10 +84,12 @@ public class Menu {
         }
 
         Personnage personnage = null;
+        //je déclare ma variable,après j'affecte soit Magicien soit Guerrier
         if (type_personnage == 1) {
+            //constructeur Magicien(ctrl+p-choix des constructeurs
             personnage = new Magicien();
         } else {
-            personnage = new Guerrier();
+            personnage = new Guerrier("name", 5, 10,new Bouclier(), new Arme());
         }
     /*donc je crée mon perso et j'appelle la méthode modifiérPerso qui sert à la fois à la fin de créer un perso pr lui mettre un nom et à la fois
     * si je l'appelle directement pr changer le nom(modifierPersonnage*/

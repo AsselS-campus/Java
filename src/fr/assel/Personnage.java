@@ -1,14 +1,14 @@
 package fr.assel;
 
-public abstract class Personnage {
-    /*accès protégé. La variable n'est disponible qu'à l'intérieur d'une classe. Elle peut être donc visible pour les classes
-     héritantes. Elle est aussi visible pour des classes non héritantes mais étant du même package.*/
-    /*las variables protected sont utilisées ds la classe et ds la mère*/
+public  abstract class Personnage {
+    //klass personnage poslujit realizaciei metodov kotorye budut ispol'zovat'sya dlya guerrier i dlya magicien
     private String name;
     private int hp ;
     private int attack;
 
 public Personnage(String name, int hp, int attack ){
+    //le but du constructeur-initialiser des variables de classe(privées ou protected)
+    //il instancie l'objet
     this.hp = hp;
     this.attack = attack;
     this.name = name;
