@@ -12,11 +12,6 @@ public class Menu {
         System.out.println("4. Démarrer la partie");
         System.out.println("5. Quitter jeu");
     }
-
-    /*3-Plateau de Jeu et déplacement du joueur*/
-    /*public car appelée par une classe tiers(Main) et ça ne renvoie rien, donc void*/
-    public void demarrer_partie(Personnage personnage) {
-
     public void display(){
         Scanner scanner = new Scanner(System.in);
         /*Pour créer un objet Scanner et le connecter à l'objet System.in*/
@@ -49,7 +44,6 @@ public class Menu {
     /*Plateau de Jeu et déplacement du joueur*/
     public void demarrerPartie(Personnage personnage) {
         /*demarrerPartie c'est public car appelée par une classe tiers (main) et ça ne renvoit rien,donc VOID*/
-
         int[] plateau = new int[64];
         int position_personnage = 0;
 
@@ -65,19 +59,13 @@ public class Menu {
         System.out.println("Personnage au bout du plateau en position " + position_personnage);
     }
     /*méthode*/
-
-    /*renvoie une instance de Personnage modifiée, donc on met personnage en type de retour*/
-    public Personnage modifier_personnage(Personnage personnage) {
     public Personnage modifierPersonnage(Personnage personnage) {
         /*modifierPersonnage renvoie une istance de personnage modifié donc on met personnage en type de retour*/
         Scanner scanner = new Scanner(System.in);
 
         System.out.println("Quel est le nom de votre personnage?");
         String name = scanner.next();
-        personnage.set_name(name);
-
         personnage.setName(name);
-
 
         return personnage;
     }
@@ -97,9 +85,8 @@ public class Menu {
         } else {
             personnage = new Guerrier();
         }
-    /*donc je crée mon perso et j'appelle la méthode modifiérPerso qui sert à la fois à la fin de créer un perso pr lui mettre un nom et à la fois
-    * si je l'appelle directement pr changer le nom(modifierPersonnage*/
+        /*donc je crée mon perso et j'appelle la méthode modifiérPerso qui sert à la fois à la fin de créer un perso pr lui mettre un nom et à la fois
+         * si je l'appelle directement pr changer le nom(modifierPersonnage*/
         return modifierPersonnage(personnage);
     }
 }
-

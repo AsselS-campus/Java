@@ -8,8 +8,9 @@ public class Personnage {
     protected int hp ;
     protected int attack;
 
+public Personnage(){
 
-
+}
     public  void setName(String name) {
         this.name = name;
     }
