@@ -5,21 +5,17 @@ public class Guerrier extends Personnage {
     private Bouclier bouclier;
 	/*Une classe « Guerrier » qui aura 3 constructeurs (sans paramètres, avec nom, et avec nom/image/niveau de vie/force d’attaque)*/
     /*le but du constructeur-initialiser des variables de classe(privées ou protected)*/
+
     public Guerrier(){
-        this.hp = 5;
-        this.attack = 10;
-
+        this("Guerrier");
     }
+
     public Guerrier(String name) {
-        this.hp = 5;
-        this.attack = 10;
-
-        this.name=name;
+        this(name, 5,10, new Bouclier(), new Arme());
     }
-    public Guerrier(String name, int hp, int attack, Bouclier bouclier, Arme arme) {
-        this.name=name;
-        this.hp=hp;
-        this.attack=attack;
+
+    public Guerrier(String name, int hp, int attack ,Bouclier bouclier, Arme arme) {
+        super(name, hp, attack);
         this.arme=arme;
         this.bouclier=bouclier;
     }
@@ -27,9 +23,9 @@ public class Guerrier extends Personnage {
     @Override
     public String toString() {
         return "Warrior{" +
-                "name=" + this.name +
-                ", hp=" + this.hp +
-                ", attack=" + this.attack +
+                "name=" + this.getName() +
+                ", hp=" + this.getHp() +
+                ", attack=" + this.getAttack() +
                 ", arme=" + this.arme +
                 ", bouclier=" + this.bouclier +
                 '}';
