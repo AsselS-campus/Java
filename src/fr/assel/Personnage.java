@@ -1,6 +1,6 @@
 package fr.assel;
 
-public class Personnage {
+public abstract class Personnage {
     /*accès protégé. La variable n'est disponible qu'à l'intérieur d'une classe. Elle peut être donc visible pour les classes
      héritantes. Elle est aussi visible pour des classes non héritantes mais étant du même package.*/
     /*las variables protected sont utilisées ds la classe et ds la mère*/
@@ -13,9 +13,7 @@ public Personnage(String name, int hp, int attack ){
     this.attack = attack;
     this.name = name;
 }
-public Personnage(){
 
-}
     public  void setName(String name) {
         this.name = name;
     }

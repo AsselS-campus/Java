@@ -11,6 +11,7 @@ public class Magicien extends Personnage {
     public Magicien(String name){
         this(name,2,5, new Sort(), new Philtre());
     }
+
     public Magicien(String name, int hp, int attack, Sort sort, Philtre philtre){
         super(name,hp,attack);
         this.sort=sort;
