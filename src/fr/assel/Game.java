@@ -79,9 +79,9 @@ public class Game {
                 }
 
                 position_personnage += des;
-            }
+            } else throw new PersonnageHorsPlateauException();
         }
-        throw new PersonnageHorsPlateauException();
+
     }
 
     private void fight(Personnage personnage, Ennemi ennemi) throws JoueurMortException {
