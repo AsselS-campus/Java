@@ -17,6 +17,12 @@ public abstract class Sort extends Case implements TypeAttaque {
         return this.force;
     }
 
+
+    public Sort(){}
+    public void interaction(){
+        System.out.println("Sort trouvé!");
+    }
+
     @Override
     public String toString() {
         return "Sort{" +

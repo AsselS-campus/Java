@@ -16,6 +16,12 @@ public abstract class Potion extends Case {
         return hp;
     }
 
+
+    public Potion(){}
+    public void interaction(){
+        System.out.println("Potion trouvée!");
+    }
+
     @Override
     public String toString() {
         return "Potion{" +

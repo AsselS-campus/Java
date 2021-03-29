@@ -3,8 +3,15 @@ package fr.assel.characters;
 import fr.assel.artefacts.TypeAttaque;
 import fr.assel.artefacts.Potion;
 
+/**
+ * this is my abstract class Personnage
+ */
+
 public  abstract class Personnage {
     //klass personnage poslujit realizaciei metodov kotorye budut ispol'zovat'sya dlya guerrier i dlya magicien
+    /**
+     * *this are the attributs of Personnage
+     */
     private String name;
     private int hp ;
     private int attack;

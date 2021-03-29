@@ -16,6 +16,12 @@ public abstract class Arme extends Case implements TypeAttaque {
         return this.force;
     }
 
+    public Arme(){}
+    public void interaction(){
+        System.out.println("Arme trouvée!");
+
+    }
+
     @Override
     public String toString() {
         return "Arme{" +

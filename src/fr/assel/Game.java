@@ -9,6 +9,7 @@ import java.util.Random;
 public class Game {
     private static int NB_ELEMENTS_PLATEAU = 64;
     private ArrayList<Case> plateau = new ArrayList<>(NB_ELEMENTS_PLATEAU);
+    //la forme d'une ArrayList d'objets de type Case
     private int position_personnage = 0;
 
     public Game() {
@@ -19,6 +20,8 @@ public class Game {
 
             int entity = rand.nextInt(10);
             switch (entity) {
+                //on instancie le plateau de jeu en dur. C'est-à-dire rentrer les cases une à une avec leur position
+                //Votre personnage devra donc se déplacer sur le plateau à chaque tour de jeu, et interagir avec les Cases via la méthode toString() de chacune d’entre elles
                 case 0: current_case = new Dragon(); break;
                 case 1: current_case = new Gobelin(); break;
                 case 2: current_case = new Sorcier(); break;
@@ -48,20 +51,21 @@ public class Game {
         Random rand = new Random();
         int tour=0;
         while (position_personnage < plateau.size()) {
+            //size() permet d'obtenir le nombre d'éléménts ds une liste
             tour++;
-            //a chaque tour on lance le dés et on avance vers la case correspondante
+            //à chaque tour on lance le dés et on avance vers la case correspondante
             System.out.println("Tour: "+tour+": Position personnage: " + position_personnage);
             int des = rand.nextInt(6 - 1) + 1; // simulation des
             System.out.println("Jeté de dés: " + des);
 
             if (position_personnage + des <= plateau.size()) {
-                // on choisit l'action à faire suivant l'instance que l'on trouve sur la case ou on est allé
-                Case current_case = plateau.get(position_personnage + des - 1);
+                // on choisit l'action à faire suivant l'instance que l'on trouve sur la case où on est allé
+                /*Case current_case = plateau.get(position_personnage + des - 1);
                 if (current_case instanceof Ennemi) {
                     System.out.println("Combat!");
                     fight(personnage, (Ennemi) current_case);
                 } else if (current_case instanceof Arme && personnage instanceof Guerrier) {
-                    //je vrifie si je ss bien gurrier et jaffecte larme a mon personnage;je caste ds le bon type
+                    //je vérifie si je ss bien guerrier et j'affecte l'arme à mon personnage;je caste ds le bon type
                     // Guerrier guerrier=(Guerrier) personnage;
                     // Arme arme=(Arme) current_case;
                     // guerrier.setArme(arme);
@@ -75,7 +79,16 @@ public class Game {
                 } else if (current_case instanceof Potion) {
                     System.out.println("Potion trouvée! +" + ((Potion) current_case).getHp());
                     personnage.setPotion((Potion) current_case);
-                    System.out.println("Personnage upgradé! "+personnage);
+                    System.out.println("Personnage upgradé! "+personnage);*/
+                plateau.add(new BouleDeFeu());
+                plateau.add(new Eclair());
+                plateau.add(new Epee());
+                plateau.add(new GrandePotion());
+                plateau.add(new Massue());
+                plateau.add(new StandardPotion());
+
+
+
                 }
 
                 position_personnage += des;

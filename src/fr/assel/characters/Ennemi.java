@@ -19,10 +19,13 @@ public class Ennemi extends Case {
         return hp;
     }
 
-
-
     public int getAttack() {
         return attack;
+    }
+
+    public Ennemi(){}
+    public void interaction(){
+        System.out.println("Combat!");
     }
 
     @Override

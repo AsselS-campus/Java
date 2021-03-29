@@ -17,7 +17,7 @@ public class Menu {
     }
 
     public void display() {
-        //2 méthode exception
+
         Scanner scanner = new Scanner(System.in);
         /*Pour créer un objet Scanner et le connecter à l'objet System.in*/
 
@@ -53,7 +53,7 @@ public class Menu {
         }
     }
 
-    /*méthode*/
+
     public Personnage modifierPersonnage(Personnage personnage) {
         /*modifierPersonnage renvoie une istance de personnage modifié donc on met personnage en type de retour*/
         Scanner scanner = new Scanner(System.in);
