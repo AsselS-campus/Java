@@ -49,19 +49,20 @@ public class Game {
         int tour=0;
         while (position_personnage < plateau.size()) {
             tour++;
-            //a chaque tour on lance le dés et on avance vers la case correspondante
+            //à chaque tour on lance le dés et on avance vers la case correspondante
             System.out.println("Tour: "+tour+": Position personnage: " + position_personnage);
             int des = rand.nextInt(6 - 1) + 1; // simulation des
             System.out.println("Jeté de dés: " + des);
 
             if (position_personnage + des <= plateau.size()) {
-                // on choisit l'action à faire suivant l'instance que l'on trouve sur la case ou on est allé
+                // on choisit l'action à faire suivant l'instance que l'on trouve sur la case où on est allé
                 Case current_case = plateau.get(position_personnage + des - 1);
                 if (current_case instanceof Ennemi) {
                     System.out.println("Combat!");
                     fight(personnage, (Ennemi) current_case);
                 } else if (current_case instanceof Arme && personnage instanceof Guerrier) {
-                    //je vrifie si je ss bien gurrier et jaffecte larme a mon personnage;je caste ds le bon type
+                    //je vérifie si je ss bien guerrier et j'affecte l'arme à
+                    // mon personnage;je caste ds le bon type
                     // Guerrier guerrier=(Guerrier) personnage;
                     // Arme arme=(Arme) current_case;
                     // guerrier.setArme(arme);
