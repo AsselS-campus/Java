@@ -1,6 +1,7 @@
 package fr.assel.artefacts;
 
 import fr.assel.Case;
+import fr.assel.Game;
 
 public abstract class Sort extends Case implements TypeAttaque {
 
@@ -18,9 +19,10 @@ public abstract class Sort extends Case implements TypeAttaque {
     }
 
 
-    public Sort(){}
+
     public void interaction(){
         System.out.println("Sort trouvé!");
+        Game.personnage.setWeapon(this);
     }
 
     @Override

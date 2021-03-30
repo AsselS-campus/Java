@@ -1,6 +1,7 @@
 package fr.assel.artefacts;
 
 import fr.assel.Case;
+import fr.assel.Game;
 
 public abstract class Potion extends Case {
 
@@ -17,9 +18,10 @@ public abstract class Potion extends Case {
     }
 
 
-    public Potion(){}
+
     public void interaction(){
         System.out.println("Potion trouvée!");
+        Game.personnage.setPotion(this);
     }
 
     @Override
