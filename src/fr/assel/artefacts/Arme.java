@@ -1,6 +1,7 @@
 package fr.assel.artefacts;
 
 import fr.assel.Case;
+import fr.assel.Game;
 
 public abstract class Arme extends Case implements TypeAttaque {
 
@@ -14,6 +15,12 @@ public abstract class Arme extends Case implements TypeAttaque {
 
     public int getForce() {
         return this.force;
+    }
+
+
+    public void interaction(){
+        System.out.println("Arme trouvée!");
+        Game.personnage.setWeapon(this);
     }
 
     @Override

@@ -1,6 +1,8 @@
 package fr.assel.characters;
 
 import fr.assel.Case;
+import fr.assel.Game;
+import fr.assel.JoueurMortException;
 
 public class Ennemi extends Case {
 
@@ -19,10 +21,18 @@ public class Ennemi extends Case {
         return hp;
     }
 
-
-
     public int getAttack() {
         return attack;
+    }
+
+
+    public void interaction(){
+        System.out.println("Combat!");
+        try {
+            Game.fight(Game.personnage, this);
+        } catch (JoueurMortException e) {
+            e.printStackTrace();
+        }
     }
 
     @Override
