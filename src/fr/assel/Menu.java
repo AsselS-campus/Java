@@ -4,6 +4,7 @@ import fr.assel.characters.Guerrier;
 import fr.assel.characters.Magicien;
 import fr.assel.characters.Personnage;
 
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class Menu {
@@ -17,20 +18,17 @@ public class Menu {
     }
 
     public void display() {
-
-        Scanner scanner = new Scanner(System.in);
-        /*Pour créer un objet Scanner et le connecter à l'objet System.in*/
-
         Personnage personnage = null;
-
         /*condition et boucle nous permettent d'afficher le menu et de choisir quoi faire, suivant ce que rentre l'utilisateur,
         on construit le perso, on l'affiche, on le modifie ou on quitte le jeu*/
         int type_menu=0;
         while (type_menu!=5) {
             this.afficher();
-            type_menu = scanner.nextInt();
             try {
-                //Récupère l'entrée en tant que int
+                Scanner scanner = new Scanner(System.in);
+                /*Pour créer un objet Scanner et le connecter à l'objet System.in*/
+                type_menu = scanner.nextInt();
+                try{
                 if (type_menu == 1) {
                     personnage = this.nouveauPersonnage();
                 } else if (type_menu == 2) {
@@ -46,9 +44,12 @@ public class Menu {
                         game.jouerUnTour(personnage);
 
                     } else System.err.println("Pas de personnage créé...");
-                }
+                } else System.err.println("Mauvais choix...");
             } catch (PersonnageHorsPlateauException | JoueurMortException e) {
                 System.err.println(e);
+            }
+        } catch (InputMismatchException e) {
+                System.err.println("Mauvais choix...");
             }
         }
     }
@@ -65,6 +66,9 @@ public class Menu {
         return personnage;
     }
 
+    /**
+     * je declare ma variable,apres j'affecte soit Magicien soit Guerrier
+     */
     public Personnage nouveauPersonnage() {
         Scanner scanner = new Scanner(System.in);
         int type_personnage = 0;
@@ -75,15 +79,16 @@ public class Menu {
         }
 
         Personnage personnage;
-        //je déclare ma variable,après j'affecte soit Magicien soit Guerrier
         if (type_personnage == 1) {
             //constructeur Magicien(ctrl+p-choix des constructeurs)
             personnage = new Magicien();
         } else {
             personnage = new Guerrier();
         }
-        /*donc je crée mon perso et j'appelle la méthode modifiérPersonnage qui sert à la fois à la fin de créer un perso pr lui mettre un nom et à la fois
-         * si je l'appelle directement pr changer le nom(modifierPersonnage*/
+        /*
+         donc je crée mon perso et j'appelle la méthode modifiérPersonnage qui sert
+         à la fois à la fin de créer un perso pr lui mettre un nom et à la fois
+         si je l'appelle directement pr changer le nom(modifierPersonnage*/
         return modifierPersonnage(personnage);
     }
 }

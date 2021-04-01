@@ -2,6 +2,9 @@ package fr.assel.artefacts;
 
 import fr.assel.Case;
 import fr.assel.Game;
+import fr.assel.JoueurMortException;
+import fr.assel.characters.Guerrier;
+import fr.assel.characters.Personnage;
 
 public abstract class Arme extends Case implements TypeAttaque {
 
@@ -17,10 +20,16 @@ public abstract class Arme extends Case implements TypeAttaque {
         return this.force;
     }
 
+    public Arme(){}
 
-    public void interaction(){
-        System.out.println("Arme trouvée!");
-        Game.personnage.setWeapon(this);
+    public int interaction(Personnage personnage, int position_personnage)throws JoueurMortException {
+        if (personnage instanceof Guerrier) {
+            //je vérifie si je ss bien guerrier et j'affecte l'arme à mon personnage;je caste ds le bon type
+            System.out.println("Arme trouvée! +" + getForce());
+            ((Guerrier) personnage).setArme(this);
+            System.out.println("Personnage upgradé! " + personnage);
+        }
+        return position_personnage;
     }
 
     @Override
