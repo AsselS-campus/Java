@@ -1,6 +1,8 @@
 package fr.assel.artefacts;
 
 import fr.assel.Case;
+import fr.assel.JoueurMortException;
+import fr.assel.characters.Personnage;
 import fr.assel.Game;
 
 public abstract class Potion extends Case {
@@ -18,10 +20,14 @@ public abstract class Potion extends Case {
     }
 
 
+    public Potion(){}
 
-    public void interaction(){
-        System.out.println("Potion trouvée!");
-        Game.personnage.setPotion(this);
+    public int interaction(Personnage personnage, int position_personnage) throws JoueurMortException{
+        System.out.println("Potion trouvée! +" + getHp());
+        personnage.setPotion(this);
+        System.out.println("Personnage upgradé! "+personnage);
+
+        return position_personnage;
     }
 
     @Override

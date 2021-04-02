@@ -51,7 +51,7 @@ public  abstract class Personnage {
     }
 
     /**
-     *
+     * 
      * @param name
      */
     public  void setName(String name) {

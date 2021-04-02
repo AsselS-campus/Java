@@ -1,6 +1,9 @@
 package fr.assel.artefacts;
 
 import fr.assel.Case;
+import fr.assel.JoueurMortException;
+import fr.assel.characters.Magicien;
+import fr.assel.characters.Personnage;
 import fr.assel.Game;
 
 public abstract class Sort extends Case implements TypeAttaque {
@@ -18,11 +21,15 @@ public abstract class Sort extends Case implements TypeAttaque {
         return this.force;
     }
 
+    public Sort(){}
 
-
-    public void interaction(){
-        System.out.println("Sort trouvé!");
-        Game.personnage.setWeapon(this);
+    public int interaction(Personnage personnage, int position_personnage)throws JoueurMortException {
+        if (personnage instanceof Magicien) {
+            System.out.println("Sort trouvée! +" + getForce());
+            ((Magicien) personnage).setSort(this);
+            System.out.println("Personnage upgradé! " + personnage);
+        }
+        return position_personnage;
     }
 
     @Override
